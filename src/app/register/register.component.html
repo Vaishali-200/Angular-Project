@@ -1,0 +1,57 @@
+<div class="card">
+    
+      <div class="card-body">
+        <form [formGroup]="registerForm">
+
+            <table border="2px" style="color: darkcyan; background-color:steelblue">
+                <h4 style="font-size: xx-large; color: black;">Register</h4>
+            
+            <div class="form-group">
+                <input type="text" id="firstName" formControlName="firstName" placeholder="First Name" class=" form-control mb-2" style="width: 300px; height: 35px;" />
+                <div *ngIf="registerForm.get('firstName').touched">
+                <label *ngIf="registerForm.get('firstName').hasError('required')" style="font-size: 16px; color: red;">First Name 
+                    field is required</label>
+                </div>
+            </div><br>
+
+            <div class="form-group">
+                <input type="text" id="lastName" formControlName="lastName" placeholder="Last Name" class=" form-control mb-2" style="width: 300px; height: 35px;" />
+                <div *ngIf="registerForm.get('lastName').touched">
+                <label *ngIf="registerForm.get('lastName').hasError('required')" style="font-size: 16px; color: red;">Last Name 
+                    field is required</label>
+                </div>
+            </div><br>
+
+            <div class="form-group">
+                <input type="mobileNumber" id="mobile" formControlName="mobile" placeholder="Mobile Number" class=" form-control mb-2" style="width: 300px; height: 35px;" />
+                <div *ngIf="registerForm.get('mobile').touched">
+                <label *ngIf="registerForm.get('mobile').hasError('required')" style="font-size: 16px; color: red;">
+                    Mobile number is required</label>
+                </div>
+            </div><br>
+            
+
+            <div>
+            <input type="text" id="email" [formControlName]="'email'" placeholder="Email" class=" form-control mb-2" style="width: 300px; height: 35px;">
+	            <div *ngIf="registerForm.get('email').touched">
+	                <label *ngIf="registerForm.get('email').hasError('pattern')" style="font-size: 16px; color: red;">Invalid
+	                    email</label>
+	                <label *ngIf="registerForm.get('email').hasError('required')" style="font-size: 16px; color: red;">Email
+	                    field
+	                    is
+	                    required</label>
+	            </div>
+			</div><br>
+
+            <div>
+	            <input type="password" id="password" [formControlName]="'password'" placeholder="Password"
+	                class="form-control" style="width: 300px; height: 35px;">
+	            <label *ngIf="registerForm.get('password').touched && registerForm.get('password').hasError('required')"
+	                style="font-size: 16px; color: red;">Password field is required</label>
+            </div><br>
+            
+            <button [disabled]="!registerForm.valid" style=" height: 35px; background-color:thistle; margin-bottom: 25px;">Register</button>
+            </table>
+        </form>
+    </div>
+</div>

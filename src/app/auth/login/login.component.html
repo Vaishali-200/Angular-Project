@@ -1,0 +1,46 @@
+<div class="header">
+<div class="container d-flex justify-content-center">
+	    <form [formGroup]="loginForm">
+			<table style=" padding-top:10%; width:100%; background-color:blueviolet; font-size:large; margin-right:30%">  
+               
+			<h1>Log In</h1>
+			<!-- <p class="h4 text-center mb-4 mt-4">Sign In</p> -->
+		
+	        <div class="full-width-input">
+	            <input type="text" id="email" [formControlName]="'email'" placeholder="Email" class=" form-control mb-2" style="width: 300px; height: 35px;">
+	            <div *ngIf="loginForm.get('email').touched">
+	                <label *ngIf="loginForm.get('email').hasError('pattern')" style="font-size: 16px; color: red;">Invalid
+	                    email</label>
+	                <label *ngIf="loginForm.get('email').hasError('required')" style="font-size: 16px; color: red;">Email
+	                    field
+	                    is
+	                    required</label>
+	            </div>
+			</div><br>
+
+			
+	        <div>
+	            <input type="password" id="password" [formControlName]="'password'" placeholder="Password"
+	                class="form-control" style="width: 300px; height: 35px;">
+	            <label *ngIf="loginForm.get('password').touched && loginForm.get('password').hasError('required')"
+	                style="font-size: 16px; color: red;">Password field is required</label>
+			</div><br>
+		
+	        <button [disabled]="!loginForm.valid" style=" height: 35px; background-color:thistle; margin-bottom: 25px; text-decoration-color: white;">Login</button>
+	</table>
+	    </form>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+<div class="container">
+    <div>
+        <h2><p class="h4 mb-4 mt-4" style="text-align: center; color: darkblue; font-size: xx-large;">Create New Post</p></h2>
+    </div>
+    <hr>
+    <form [formGroup]="addPostForm" (ngSubmit)="addPost()">
+        <div class="form-group">
+            <input type="text" id="title" [formControlName]="'title'" placeholder="Title" class=" form-control mb-2" style="width: 200px; height: 28px; ">
+            <div *ngIf="addPostForm.get('title').touched">
+                <label *ngIf="addPostForm.get('title').hasError('required')" style="font-size: 16px; color: red;">Title
+                    field
+                    is
+                    required</label>
+            </div>
+        </div><br>
+        <div class="form-group">
+            <editor [formControlName]="'content'" [init]="{
+              height: 500,
+              menubar: false,
+              plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+              ],
+              toolbar:
+                'undo redo | formatselect | bold italic backcolor | \
+                alignleft aligncenter alignright alignjustify | \
+                bullist numlist outdent indent | removeformat | help'
+            }"></editor>
+            <div *ngIf="addPostForm.get('content').touched">
+
+                <label *ngIf="addPostForm.get('content').hasError('required')" style="font-size: 16px; color: red;">Body
+                    field
+                    is
+                    required</label>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-md-6">
+                <button class="btn btn-primary btn-block mt-4 " [disabled]="!addPostForm.valid">Publish</button>
+            </div>
+            <div class="col-md-6">
+                <button  class="btn btn-primary btn-block mt-4 " [disabled]="!addPostForm.valid">Save as Draft</button>
+            </div>
+        </div>
+    </form>
+</div>
