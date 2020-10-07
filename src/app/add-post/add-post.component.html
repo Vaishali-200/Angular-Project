@@ -5,7 +5,7 @@
     <hr>
     <form [formGroup]="addPostForm" (ngSubmit)="addPost()">
         <div class="form-group">
-            <input type="text" id="title" [formControlName]="'title'" placeholder="Title" class=" form-control mb-2" style="width: 200px; height: 28px; ">
+            <input type="text" id="title" [formControlName]="'title'" placeholder="Title" class=" form-control mb-2" style="width: 800px; height: 28px; ">
             <div *ngIf="addPostForm.get('title').touched">
                 <label *ngIf="addPostForm.get('title').hasError('required')" style="font-size: 16px; color: red;">Title
                     field

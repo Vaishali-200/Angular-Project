@@ -1,0 +1,95 @@
+<div class="header">
+	<div class="container d-flex justify-content-center">
+			<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+				<table style=" padding-top:10%; width:100%; background-color:#2be2cd; font-size:large; margin-right:30%">  
+				   
+				<h1>Sign Up</h1>
+
+				<div class="full-width-input">
+					<input type="text" id="firstname" [formControlName]="'firstname'" placeholder="First Name" class=" form-control mb-2" style="width: 300px; height: 35px;">
+					<div *ngIf="registerForm.get('firstname').touched">
+						<label *ngIf="registerForm.get('firstname').hasError('required')" style="font-size: 16px; color: red;">First Name is required
+							</label> -->
+						<label *ngIf="registerForm.get('firstname').hasError('required')" style="font-size: 16px; color: red;">First Name
+							is
+							required</label>
+					</div>
+				</div><br>
+
+				<div class="full-width-input">
+					<input type="text" id="lastname" [formControlName]="'lastname'" placeholder="Last Name" class=" form-control mb-2" style="width: 300px; height: 35px;">
+					<div *ngIf="registerForm.get('lastname').touched">
+						<!-- <label *ngIf="registerForm.get('email').hasError('pattern')" style="font-size: 16px; color: red;">Invalid
+							email</label> -->
+						<label *ngIf="registerForm.get('lastname').hasError('required')" style="font-size: 16px; color: red;">Last Name
+							is
+							required</label>
+					</div>
+				</div><br>
+
+				<div class="full-width-input">
+					<input type="text" id="username" [formControlName]="'username'" placeholder="UserName" class=" form-control mb-2" style="width: 300px; height: 35px;">
+					<div *ngIf="registerForm.get('username').touched">
+						<!-- <label *ngIf="registerForm.get('email').hasError('pattern')" style="font-size: 16px; color: red;">Invalid
+							email</label> -->
+						<label *ngIf="registerForm.get('username').hasError('required')" style="font-size: 16px; color: red;">UserName
+							is
+							required</label>
+					</div>
+				</div><br>
+				
+
+				<div class="full-width-input">
+					<input type="text" id="email" [formControlName]="'email'" placeholder="Email" class=" form-control mb-2" style="width: 300px; height: 35px;">
+					<div *ngIf="registerForm.get('email').touched">
+						<label *ngIf="registerForm.get('email').hasError('pattern')" style="font-size: 16px; color: red;">Invalid
+							email</label>
+						<label *ngIf="registerForm.get('email').hasError('required')" style="font-size: 16px; color: red;">Email
+							field
+							is
+							required</label>
+					</div>
+				</div><br>
+
+				<div>
+					<input type="password" id="password" [formControlName]="'password'" placeholder="Password"
+						class="form-control" style="width: 300px; height: 35px;">
+					<label *ngIf="registerForm.get('password').touched && registerForm.get('password').hasError('required')"
+						style="font-size: 16px; color: red;">Password field is required</label>
+				</div><br>
+
+				<div class="full-width-input">
+					<input type="text" id="description" [formControlName]="'description'" placeholder="Description" class=" form-control mb-2" style="width: 300px; height: 35px;">
+					<div *ngIf="registerForm.get('username').touched">
+						<!-- <label *ngIf="registerForm.get('email').hasError('pattern')" style="font-size: 16px; color: red;">Invalid
+							email</label> -->
+						<label *ngIf="registerForm.get('description').hasError('required')" style="font-size: 16px; color: red;">Description
+							is
+							required</label>
+					</div>
+				</div><br>
+
+				<div class="full-width-input">
+					<input type="number" id="number" [formControlName]="'number'" maxlength="10" placeholder="Mobile Number" class=" form-control mb-2" style="width: 300px; height: 35px;">
+					<div *ngIf="registerForm.get('number').touched">
+						<!-- <label *ngIf="registerForm.get('email').hasError('pattern')" style="font-size: 16px; color: red;">Invalid
+							email</label> -->
+						<label *ngIf="registerForm.get('number').hasError('required')" style="font-size: 16px; color: red;">Mobile Number
+							is required</label>
+					</div>
+				</div><br>
+		
+
+				<div>
+					<input type="text" id="linkedin" [formControlName]="'linkedin'" autofocus="" placeholder="Linked In"
+						class="form-control" style="width: 300px; height: 35px;">
+				</div><br>			
+				
+				<button class="btn btn-primary btn-block" type="submit" style="width: 120px; height: 40px;" [disabled]="!registerForm.valid">Sign up</button>
+				
+				</table>
+			</form>
+	</div>
+</div>
+
+	
